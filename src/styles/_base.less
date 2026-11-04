@@ -1,0 +1,165 @@
+// ===========================================================
+// BASE
+// ===========================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: @font-ui;
+  font-weight: @weight-medium;
+  font-size: @text-body;
+  line-height: 1.39;
+  letter-spacing: @tracking-body;
+  color: @carbon;
+  background: @paper-white;
+  font-feature-settings: 'ss01' on, 'tnum';
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  color: inherit;
+}
+
+.container {
+  .container();
+}
+
+// ---------- Botones ----------
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: @sp-8;
+  padding: 10px @sp-16;
+  .label(13px);
+  .outline();
+  .pill();
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px) rotate(-1deg);
+  }
+
+  &--filled {
+    background: @carbon;
+    color: @paper-white;
+
+    &:hover {
+      background: @paper-white;
+      color: @carbon;
+    }
+  }
+
+  &--ghost {
+    background: @paper-white;
+    color: @carbon;
+
+    &:hover {
+      background: @carbon;
+      color: @paper-white;
+    }
+  }
+
+  &--lg {
+    padding: 14px @sp-24;
+    font-size: 14px;
+  }
+}
+
+// ---------- Tag / Pill ----------
+.tag {
+  display: inline-block;
+  padding: 6px @sp-12;
+  .label(12px);
+  .outline();
+  .pill();
+  background: @paper-white;
+}
+
+// ---------- Hueco para imagen (lo rellena el usuario) ----------
+.img-slot {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  overflow: hidden;
+  .outline();
+  border-style: dashed;
+  border-radius: @radius-card;
+  background: fade(@paper-white, 55%);
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  // Texto guía: se oculta automáticamente al poner un <img>
+  &::before {
+    content: '🏀 ' attr(data-label);
+    .label(12px);
+    padding: @sp-16;
+    max-width: 80%;
+  }
+
+  > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:has(img) {
+    border-style: solid;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// ---------- Encabezado de sección ----------
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: @sp-24;
+  flex-wrap: wrap;
+  margin-bottom: @sp-48;
+
+  &__title {
+    .display(clamp(72px, 12vw, 200px));
+  }
+
+  &__text {
+    max-width: 380px;
+    font-size: @text-subheading;
+    line-height: 1.2;
+  }
+}

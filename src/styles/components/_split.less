@@ -1,0 +1,150 @@
+// ===========================================================
+// HALF INVERTED PANEL (mitad texto / mitad imagen)
+// ===========================================================
+
+.split-section {
+  background: @concrete-gray;
+  padding-block: @sp-80;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .outline();
+  border-radius: @radius-card-elevated;
+  overflow: hidden;
+  min-height: 620px;
+
+  // Mitad texto: invertida (fondo negro, texto blanco)
+  &__text {
+    position: relative;
+    background: @carbon;
+    color: @paper-white;
+    padding: @sp-60;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: @sp-24;
+  }
+
+  &__title {
+    .display(clamp(80px, 9vw, 160px));
+    color: @paper-white;
+    line-height: 0.78;
+
+    em {
+      font-style: normal;
+      color: @electric-blue;
+    }
+  }
+
+  &__lead {
+    font-size: @text-subheading;
+    line-height: 1.2;
+    max-width: 460px;
+  }
+
+  &__list {
+    display: grid;
+    gap: @sp-8;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: @sp-12;
+      .label(13px);
+
+      &::before {
+        content: '✓';
+        width: 26px;
+        height: 26px;
+        flex: none;
+        display: grid;
+        place-items: center;
+        background: @mint-pop;
+        color: @carbon;
+        border: 1px solid @paper-white;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: @sp-8;
+    flex-wrap: wrap;
+    margin-top: @sp-8;
+  }
+
+  // Mitad imagen
+  &__media {
+    position: relative;
+    background: @electric-blue;
+    border-left: 1px solid @carbon;
+    padding: @sp-24;
+
+    .img-slot {
+      height: 100%;
+      min-height: 100%;
+      border-radius: @radius-body;
+      background: fade(@paper-white, 35%);
+    }
+  }
+
+  &__badge {
+    .sticker(@sunburst; 10deg; @radius-pill);
+    z-index: 2;
+    top: @sp-40;
+    right: @sp-40;
+    width: 120px;
+    height: 120px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-family: @font-display;
+    font-size: 30px;
+    line-height: 0.85;
+    color: @carbon;
+  }
+
+  &__sticker {
+    .sticker(@ember; -10deg);
+    z-index: 2;
+    bottom: @sp-40;
+    left: @sp-40;
+    padding: @sp-12 @sp-16;
+    .label(13px);
+    color: @paper-white;
+  }
+
+  // Variante invertida: imagen a la izquierda
+  &--reverse {
+    .split__text {
+      order: 2;
+    }
+
+    .split__media {
+      order: 1;
+      border-left: 0;
+      border-right: 1px solid @carbon;
+    }
+  }
+
+  @media @bp-md {
+    grid-template-columns: 1fr;
+
+    &__text {
+      padding: @sp-40 @sp-24;
+    }
+
+    &__media {
+      border-left: 0;
+      border-top: 1px solid @carbon;
+      min-height: 420px;
+    }
+
+    &--reverse .split__media {
+      border-right: 0;
+    }
+  }
+}

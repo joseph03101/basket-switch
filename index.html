@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SWISH — La liga de basket callejero más ruidosa de la ciudad." />
+    <title>SWISH — Basket Club</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <!-- Sprite SVG reutilizable: balón de basket -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="ball" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="48" fill="#fb4903" />
+        <g fill="none" stroke="#000" stroke-width="3">
+          <path d="M50 2v96M2 50h96" />
+          <path d="M18 14c14 18 14 54 0 72M82 14c-14 18-14 54 0 72" />
+        </g>
+      </symbol>
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="noise" />
+        <feColorMatrix in="noise" type="saturate" values="0" result="mono" />
+        <feComponentTransfer in="mono" result="soft">
+          <feFuncA type="linear" slope="0.35" />
+        </feComponentTransfer>
+        <feComposite in="soft" in2="SourceGraphic" operator="in" result="grainMask" />
+        <feBlend in="SourceGraphic" in2="grainMask" mode="multiply" />
+      </filter>
+    </svg>
+
+    <!-- ================= MARQUEE ================= -->
+    <div class="marquee" aria-label="Anuncio">
+      <div class="marquee__track">
+        <span class="marquee__item">Temporada 2026 abierta — inscribe a tu equipo</span>
+        <span class="marquee__item">Torneo 3x3 este sábado en la cancha central</span>
+        <span class="marquee__item">Clínicas gratis para menores de 16</span>
+        <span class="marquee__item">Temporada 2026 abierta — inscribe a tu equipo</span>
+        <span class="marquee__item">Torneo 3x3 este sábado en la cancha central</span>
+        <span class="marquee__item">Clínicas gratis para menores de 16</span>
+      </div>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="/" class="navbar__logo" aria-label="SWISH inicio">
+          <span class="navbar__ball"><svg><use href="#ball" /></svg></span>
+          Swish
+        </a>
+
+        <nav>
+          <ul class="navbar__links" data-nav>
+            <li><a class="navbar__link is-active" href="/">Inicio</a></li>
+            <li><a class="navbar__link" href="#programas">Programas</a></li>
+            <li><a class="navbar__link" href="#cancha">La cancha</a></li>
+            <li><a class="navbar__link" href="/equipos.html">Equipos</a></li>
+          </ul>
+        </nav>
+
+        <div class="navbar__actions">
+          <a href="#unete" class="btn btn--filled navbar__cta">Únete al club</a>
+          <button class="navbar__plus" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">+</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+        <div class="hero__inner">
+          <span class="tag hero__eyebrow">Basket club · Desde 2019</span>
+
+          <div class="hero__headline">
+            <!-- Cinta azul 3D que pasa por detrás del titular -->
+            <svg class="hero__ribbon" viewBox="0 0 1600 700" fill="none" aria-hidden="true">
+              <path d="M-60 560C260 80 620 60 800 360S1320 700 1660 160" stroke="#000" stroke-width="158" />
+              <path d="M-60 560C260 80 620 60 800 360S1320 700 1660 160" stroke="#4da2ff" stroke-width="154" filter="url(#grain)" />
+              <path d="M-40 500C270 60 610 30 790 320S1310 650 1650 110" stroke="#fff" stroke-opacity=".35" stroke-width="14" stroke-linecap="round" />
+            </svg>
+            <h1 class="hero__title">
+              <span>Swish</span>
+              <span>City</span>
+            </h1>
+          </div>
+
+          <p class="hero__tagline">
+            Canchas abiertas, ligas de barrio y entrenos de nivel. Aquí el balón nunca deja de botar.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#unete" class="btn btn--filled btn--lg">Inscribe a tu equipo</a>
+            <a href="#programas" class="btn btn--ghost btn--lg">Ver programas</a>
+          </div>
+
+          <div class="hero__image">
+            <div class="img-slot" data-label="Imagen hero: jugador clavando (1600×900)">
+              <!-- Reemplaza por: <img src="/img/hero.jpg" alt="Jugador clavando el balón" /> -->
+            </div>
+          </div>
+
+          <!-- Stickers -->
+          <div class="hero__sticker hero__sticker--ball" aria-hidden="true"><svg><use href="#ball" /></svg></div>
+          <div class="hero__sticker hero__sticker--mvp" aria-hidden="true">MVP</div>
+          <div class="hero__sticker hero__sticker--3pt" aria-hidden="true">+3<br />PTS</div>
+          <div class="hero__sticker hero__sticker--check" aria-hidden="true">✓</div>
+          <div class="hero__sticker hero__sticker--lav" aria-hidden="true">Buzzer beater</div>
+        </div>
+      </section>
+
+      <!-- ================= CARDS ================= -->
+      <section class="cards-section" id="programas">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-head__title">Juega<br />a tu nivel</h2>
+            <p class="section-head__text">Tres programas, un mismo objetivo: que salgas de la cancha mejor de lo que entraste.</p>
+          </div>
+
+          <div class="cards">
+            <article class="card card--1">
+              <div class="card__top">
+                <span class="tag">Liga</span>
+                <span class="card__num">01</span>
+              </div>
+              <div class="img-slot card__media" data-label="Imagen: partido de liga">
+                <!-- <img src="/img/liga.jpg" alt="Partido de liga" /> -->
+              </div>
+              <h3 class="card__title">Liga 5x5</h3>
+              <p class="card__text">Temporada de 12 jornadas con árbitros, estadísticas en vivo y playoffs en la cancha central.</p>
+              <div class="card__footer">
+                <span class="card__stat">16 equipos</span>
+                <a href="#unete" class="btn btn--ghost">Inscribirme</a>
+              </div>
+            </article>
+
+            <article class="card card--2">
+              <div class="card__top">
+                <span class="tag">Street</span>
+                <span class="card__num">02</span>
+              </div>
+              <div class="img-slot card__media" data-label="Imagen: torneo 3x3 callejero">
+                <!-- <img src="/img/3x3.jpg" alt="Torneo 3x3" /> -->
+              </div>
+              <h3 class="card__title">Torneo 3x3</h3>
+              <p class="card__text">Media cancha, 21 puntos y música a todo volumen. Formato rápido, cada sábado por la tarde.</p>
+              <div class="card__footer">
+                <span class="card__stat">Sábados 4 PM</span>
+                <a href="#unete" class="btn btn--ghost">Ver fechas</a>
+              </div>
+            </article>
+
+            <article class="card card--3">
+              <div class="card__top">
+                <span class="tag">Academia</span>
+                <span class="card__num">03</span>
+              </div>
+              <div class="img-slot card__media" data-label="Imagen: entrenamiento de tiro">
+                <!-- <img src="/img/academia.jpg" alt="Entrenamiento" /> -->
+              </div>
+              <h3 class="card__title">Skills Lab</h3>
+              <p class="card__text">Manejo de balón, tiro y lectura de juego con coaches certificados. Grupos por edad y nivel.</p>
+              <div class="card__footer">
+                <span class="card__stat">Lun · Mié · Vie</span>
+                <a href="#unete" class="btn btn--ghost">Reservar</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= HALF INVERTED PANEL ================= -->
+      <section class="split-section" id="cancha">
+        <div class="container">
+          <div class="split">
+            <div class="split__text">
+              <span class="tag" style="align-self: flex-start; color: #000">La cancha</span>
+              <h2 class="split__title">No days<br /><em>off</em></h2>
+              <p class="split__lead">Duela profesional, aros reglamentarios y luces hasta la medianoche. Tu segunda casa.</p>
+              <ul class="split__list">
+                <li>Cancha techada FIBA</li>
+                <li>Abierto los 7 días</li>
+                <li>Vestidores y gimnasio</li>
+              </ul>
+              <div class="split__actions">
+                <a href="#unete" class="btn btn--ghost btn--lg">Reservar cancha</a>
+              </div>
+            </div>
+
+            <div class="split__media">
+              <div class="split__badge" aria-hidden="true">24/7<br />Hoops</div>
+              <div class="img-slot" data-label="Imagen: la cancha / gimnasio (vertical)">
+                <!-- <img src="/img/cancha.jpg" alt="Cancha de basket techada" /> -->
+              </div>
+              <div class="split__sticker" aria-hidden="true">Game time 🔥</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer" id="unete">
+      <div class="footer__top">
+        <div class="footer__intro">
+          <p class="footer__heading">¿Listo para saltar a la cancha?</p>
+          <a href="#" class="btn btn--filled btn--lg">Únete al club</a>
+          <div class="footer__app">
+            <div class="footer__qr" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <span class="footer__app-label">Descarga la app</span>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Club</p>
+          <ul class="footer__links">
+            <li><a href="#programas">Programas</a></li>
+            <li><a href="#cancha">La cancha</a></li>
+            <li><a href="/equipos.html">Equipos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Juega</p>
+          <ul class="footer__links">
+            <li><a href="#">Liga 5x5</a></li>
+            <li><a href="#">Torneo 3x3</a></li>
+            <li><a href="#">Skills Lab</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__col-title">Síguenos</p>
+          <div class="footer__socials">
+            <a href="#" class="btn btn--ghost">Instagram</a>
+            <a href="#" class="btn btn--ghost">TikTok</a>
+            <a href="#" class="btn btn--ghost">YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__wordmark" aria-hidden="true">
+        <span>Swish</span>
+        <div class="footer__ball"><svg><use href="#ball" /></svg></div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="container">
+          <span>© <span data-year></span> Swish Basket Club</span>
+          <span>Hecho con Vite + LESS</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

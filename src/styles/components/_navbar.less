@@ -1,0 +1,158 @@
+// ===========================================================
+// MARQUEE + NAVBAR
+// ===========================================================
+
+.marquee {
+  background: @carbon;
+  color: @paper-white;
+  overflow: hidden;
+  white-space: nowrap;
+  .label(12px);
+
+  &__track {
+    display: inline-flex;
+    animation: marquee 28s linear infinite;
+  }
+
+  &__item {
+    padding: 9px @sp-24;
+
+    &::after {
+      content: '🏀';
+      margin-left: @sp-48;
+    }
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding-block: @sp-12;
+
+  &__inner {
+    .container();
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: @sp-12;
+  }
+
+  // Logo circular con balón
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: @sp-8;
+    padding: 4px 14px 4px 4px;
+    background: @paper-white;
+    .outline();
+    .pill();
+    .label(14px);
+  }
+
+  &__ball {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    background: @ember;
+    .outline();
+    .pill();
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: @sp-4;
+    padding: 4px;
+    background: @paper-white;
+    .outline();
+    .pill();
+  }
+
+  &__link {
+    display: block;
+    padding: 11px @sp-16;
+    .label(12px);
+    .pill();
+    border: 1px solid transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+
+    &:hover,
+    &.is-active {
+      border-color: @carbon;
+      background: @sunburst;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: @sp-4;
+  }
+
+  &__plus {
+    width: 42px;
+    height: 42px;
+    display: none;
+    place-items: center;
+    background: @paper-white;
+    .outline();
+    .pill();
+    font-weight: @weight-bold;
+    font-size: 22px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+
+    &.is-open {
+      transform: rotate(45deg);
+    }
+  }
+
+  @media @bp-md {
+    &__plus {
+      display: grid;
+    }
+
+    &__links {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: @sp-20;
+      right: @sp-20;
+      flex-direction: column;
+      border-radius: @radius-card;
+      padding: @sp-8;
+
+      &.is-open {
+        display: flex;
+      }
+    }
+
+    &__link {
+      padding: 14px @sp-16;
+    }
+  }
+
+  @media @bp-sm {
+    &__cta {
+      display: none;
+    }
+  }
+}

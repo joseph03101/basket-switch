@@ -1,0 +1,168 @@
+// ===========================================================
+// FOOTER
+// ===========================================================
+
+.footer {
+  background: @sky-wash;
+  padding-top: @sp-80;
+  overflow: hidden;
+
+  &__top {
+    .container();
+    display: grid;
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: @sp-40;
+
+    @media @bp-md {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media @bp-sm {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    gap: @sp-16;
+    align-items: flex-start;
+  }
+
+  &__heading {
+    font-size: @text-heading-sm;
+    font-weight: @weight-bold;
+    line-height: 1.1;
+    max-width: 340px;
+  }
+
+  // Tarjeta tipo QR (descarga de la app)
+  &__app {
+    display: flex;
+    .outline();
+    border-radius: @radius-card;
+    overflow: hidden;
+    background: @voltage-violet;
+    color: @paper-white;
+  }
+
+  &__qr {
+    width: 84px;
+    height: 84px;
+    padding: @sp-8;
+    background: @paper-white;
+    border-right: 1px solid @carbon;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+
+    i {
+      background: @carbon;
+      border-radius: 2px;
+
+      &:nth-child(3n),
+      &:nth-child(7),
+      &:nth-child(11) {
+        background: transparent;
+      }
+    }
+  }
+
+  &__app-label {
+    display: grid;
+    place-items: center;
+    padding: 0 @sp-20;
+    .label(14px);
+  }
+
+  &__col-title {
+    .label(12px);
+    margin-bottom: @sp-16;
+  }
+
+  &__links {
+    display: grid;
+    gap: @sp-8;
+
+    a {
+      font-size: @text-subheading;
+      font-weight: @weight-bold;
+      line-height: 1.2;
+      transition: color 0.15s ease;
+
+      &:hover {
+        color: @voltage-violet;
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: @sp-4;
+    flex-wrap: wrap;
+  }
+
+  // Wordmark gigante al fondo
+  &__wordmark {
+    position: relative;
+    margin-top: @sp-80;
+    text-align: center;
+    .display(clamp(140px, 30vw, 520px));
+    line-height: 0.75;
+    background: @electric-blue;
+    border-top: 1px solid @carbon;
+    padding-top: @sp-40;
+    user-select: none;
+
+    span {
+      display: inline-block;
+      transform: translateY(12%);
+    }
+  }
+
+  &__ball {
+    .sticker(@ember; 0deg; @radius-pill);
+    width: clamp(70px, 10vw, 150px);
+    height: clamp(70px, 10vw, 150px);
+    top: 8%;
+    right: 8%;
+    animation: bounce 1.6s ease-in-out infinite;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__bottom {
+    background: @carbon;
+    color: @paper-white;
+    position: relative;
+    z-index: 2;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      gap: @sp-16;
+      flex-wrap: wrap;
+      padding-block: @sp-16;
+      .label(12px);
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(-24px) rotate(10deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__ball {
+    animation: none;
+  }
+}

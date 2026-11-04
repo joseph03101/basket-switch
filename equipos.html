@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipos — SWISH Basket Club</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="ball" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="48" fill="#fb4903" />
+        <g fill="none" stroke="#000" stroke-width="3">
+          <path d="M50 2v96M2 50h96" />
+          <path d="M18 14c14 18 14 54 0 72M82 14c-14 18-14 54 0 72" />
+        </g>
+      </symbol>
+    </svg>
+
+    <div class="marquee" aria-label="Anuncio">
+      <div class="marquee__track">
+        <span class="marquee__item">16 equipos · 1 trofeo</span>
+        <span class="marquee__item">Playoffs en diciembre</span>
+        <span class="marquee__item">16 equipos · 1 trofeo</span>
+        <span class="marquee__item">Playoffs en diciembre</span>
+      </div>
+    </div>
+
+    <header class="navbar">
+      <div class="navbar__inner">
+        <a href="/" class="navbar__logo" aria-label="SWISH inicio">
+          <span class="navbar__ball"><svg><use href="#ball" /></svg></span>
+          Swish
+        </a>
+        <nav>
+          <ul class="navbar__links" data-nav>
+            <li><a class="navbar__link" href="/">Inicio</a></li>
+            <li><a class="navbar__link" href="/#programas">Programas</a></li>
+            <li><a class="navbar__link" href="/#cancha">La cancha</a></li>
+            <li><a class="navbar__link is-active" href="/equipos.html">Equipos</a></li>
+          </ul>
+        </nav>
+        <div class="navbar__actions">
+          <a href="/#unete" class="btn btn--filled navbar__cta">Únete al club</a>
+          <button class="navbar__plus" data-nav-toggle aria-label="Abrir menú" aria-expanded="false">+</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero hero--compact">
+        <div class="hero__inner">
+          <span class="tag hero__eyebrow">Temporada 2026</span>
+          <div class="hero__headline">
+            <h1 class="hero__title">Equipos</h1>
+          </div>
+          <p class="hero__tagline">Conoce a los equipos que pelean el título de la Liga Swish.</p>
+          <div class="hero__sticker hero__sticker--ball" aria-hidden="true"><svg><use href="#ball" /></svg></div>
+          <div class="hero__sticker hero__sticker--mvp" aria-hidden="true">Top 6</div>
+        </div>
+      </section>
+
+      <section class="cards-section">
+        <div class="container">
+          <div class="cards">
+            <article class="card card--1">
+              <div class="card__top"><span class="tag">Este</span><span class="card__num">01</span></div>
+              <div class="img-slot card__media" data-label="Logo / foto del equipo"></div>
+              <h3 class="card__title">Halcones</h3>
+              <div class="card__footer"><span class="card__stat">10 G · 2 P</span></div>
+            </article>
+            <article class="card card--2">
+              <div class="card__top"><span class="tag">Este</span><span class="card__num">02</span></div>
+              <div class="img-slot card__media" data-label="Logo / foto del equipo"></div>
+              <h3 class="card__title">Tiburones</h3>
+              <div class="card__footer"><span class="card__stat">9 G · 3 P</span></div>
+            </article>
+            <article class="card card--3">
+              <div class="card__top"><span class="tag">Este</span><span class="card__num">03</span></div>
+              <div class="img-slot card__media" data-label="Logo / foto del equipo"></div>
+              <h3 class="card__title">Volcanes</h3>
+              <div class="card__footer"><span class="card__stat">8 G · 4 P</span></div>
+            </article>
+            <article class="card card--4">
+              <div class="card__top"><span class="tag">Oeste</span><span class="card__num">04</span></div>
+              <div class="img-slot card__media" data-label="Logo / foto del equipo"></div>
+              <h3 class="card__title">Relámpagos</h3>
+              <div class="card__footer"><span class="card__stat">8 G · 4 P</span></div>
+            </article>
+            <article class="card card--5">
+              <div class="card__top"><span class="tag">Oeste</span><span class="card__num">05</span></div>
+              <div class="img-slot card__media" data-label="Logo / foto del equipo"></div>
+              <h3 class="card__title">Lobos</h3>
+              <div class="card__footer"><span class="card__stat">7 G · 5 P</span></div>
+            </article>
+            <article class="card card--6">
+              <div class="card__top"><span class="tag">Oeste</span><span class="card__num">06</span></div>
+              <div class="img-slot card__media" data-label="Logo / foto del equipo"></div>
+              <h3 class="card__title">Cohetes</h3>
+              <div class="card__footer"><span class="card__stat">6 G · 6 P</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__bottom">
+        <div class="container">
+          <span>© <span data-year></span> Swish Basket Club</span>
+          <a href="/">← Volver al inicio</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

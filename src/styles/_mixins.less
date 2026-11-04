@@ -1,0 +1,52 @@
+// ===========================================================
+// MIXINS
+// ===========================================================
+
+// Borde "recortado a mano" negro de 1px
+.outline(@w: 1px) {
+  border: @w solid @carbon;
+}
+
+.pill() {
+  border-radius: @radius-pill;
+}
+
+// Etiqueta UI uppercase con aire
+.label(@size: 13px) {
+  font-family: @font-ui;
+  font-weight: @weight-bold;
+  font-size: @size;
+  letter-spacing: @tracking-label;
+  text-transform: uppercase;
+}
+
+// Titular display escultórico
+.display(@size) {
+  font-family: @font-display;
+  font-weight: 400; // Anton ya es ultra pesada
+  font-size: @size;
+  line-height: @leading-display;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: @carbon;
+}
+
+.container() {
+  width: 100%;
+  max-width: @page-max;
+  margin-inline: auto;
+  padding-inline: @sp-40;
+
+  @media @bp-sm {
+    padding-inline: @sp-20;
+  }
+}
+
+// Sticker decorativo rotado
+.sticker(@bg; @rot: 0deg; @radius: @radius-card) {
+  position: absolute;
+  background: @bg;
+  .outline();
+  border-radius: @radius;
+  transform: rotate(@rot);
+}

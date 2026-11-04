@@ -1,0 +1,107 @@
+// ===========================================================
+// CARDS
+// ===========================================================
+
+.cards-section {
+  background: @paper-white;
+  padding-block: @sp-128 @sp-80;
+  position: relative;
+  overflow: hidden;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: @sp-16;
+
+  @media @bp-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media @bp-sm {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Colores de cada card generados con un loop sobre la paleta
+@card-colors: @lavender, @mint-pop, @sunburst, @electric-blue, @voltage-violet, @ember;
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: @sp-16;
+  padding: @card-padding;
+  .outline();
+  border-radius: @radius-card-elevated;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-6px) rotate(-0.6deg);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__num {
+    .display(48px);
+    line-height: 0.8;
+  }
+
+  &__media {
+    min-height: 230px;
+  }
+
+  &__title {
+    .display(clamp(44px, 4.4vw, 64px));
+  }
+
+  &__text {
+    font-size: @text-body;
+    line-height: 1.45;
+    flex: 1;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: @sp-8;
+    padding-top: @sp-16;
+    border-top: 1px solid @carbon;
+  }
+
+  &__stat {
+    .label(12px);
+  }
+}
+
+// Mixin recursivo que pinta cada card con un color del set
+.card-colors(@i: 1) when (@i <= length(@card-colors)) {
+  @color: extract(@card-colors, @i);
+
+  .card--@{i} {
+    background: @color;
+  }
+
+  .card-colors(@i + 1);
+}
+
+.card-colors();
+
+// Cards con fondo oscuro → texto blanco
+.card--5 {
+  color: @paper-white;
+
+  .card__num,
+  .card__title {
+    color: @paper-white;
+  }
+
+  .card__footer {
+    border-color: @paper-white;
+  }
+}

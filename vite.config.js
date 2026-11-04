@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 
 // Configuración MPA: cada HTML es una entrada independiente
 export default defineConfig({
+  base: './',
   build: {
     rollupOptions: {
       input: {

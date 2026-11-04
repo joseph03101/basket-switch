@@ -1,5 +1,3 @@
-import './styles/main.less';
-
 // Menú móvil: el botón "+" abre/cierra los links del navbar
 const toggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');

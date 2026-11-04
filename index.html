@@ -50,10 +50,11 @@
 
         <nav>
           <ul class="navbar__links" data-nav>
-            <li><a class="navbar__link is-active" href="/">Inicio</a></li>
+            <li><a class="navbar__link is-active" href="#inicio">Inicio</a></li>
             <li><a class="navbar__link" href="#programas">Programas</a></li>
             <li><a class="navbar__link" href="#cancha">La cancha</a></li>
             <li><a class="navbar__link" href="/equipos.html">Equipos</a></li>
+            <li><a class="navbar__link" href="#unete">Contacto</a></li>
           </ul>
         </nav>
 
@@ -66,7 +67,7 @@
 
     <main>
       <!-- ================= HERO ================= -->
-      <section class="hero">
+      <section class="hero" id="inicio">
         <div class="hero__inner">
           <span class="tag hero__eyebrow">Basket club · Desde 2019</span>
 
@@ -92,11 +93,25 @@
             <a href="#programas" class="btn btn--ghost btn--lg">Ver programas</a>
           </div>
 
-          <div class="hero__image">
-            <div class="img-slot" data-label="Imagen hero: jugador clavando (1600×900)">
-              <!-- Reemplaza por: <img src="/img/hero.jpg" alt="Jugador clavando el balón" /> -->
+          <!-- Foto principal enmarcada como "tarjeta de jugada" -->
+          <figure class="hero__image">
+            <div class="frame">
+              <div class="frame__bar">
+                <span class="frame__live">● En vivo</span>
+                <span class="frame__score">Heat 102 — 98 Bucks</span>
+                <span class="frame__time">Q4 · 0:03</span>
+              </div>
+              <div class="frame__photo">
+                <img src="/img/dunk.jpg" alt="Jugador clavando el balón" />
+              </div>
+              <figcaption class="frame__caption">
+                <span>Jugada de la semana</span>
+                <span class="frame__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              </figcaption>
             </div>
-          </div>
+            <span class="frame__sticker frame__sticker--slam" aria-hidden="true">Slam<br />Dunk!</span>
+            <span class="frame__sticker frame__sticker--ball" aria-hidden="true"><svg><use href="#ball" /></svg></span>
+          </figure>
 
           <!-- Stickers -->
           <div class="hero__sticker hero__sticker--ball" aria-hidden="true"><svg><use href="#ball" /></svg></div>
@@ -122,7 +137,7 @@
                 <span class="card__num">01</span>
               </div>
               <div class="img-slot card__media" data-label="Imagen: partido de liga">
-                <!-- <img src="/img/liga.jpg" alt="Partido de liga" /> -->
+                <img src="/img/5vs5.jpeg" alt="Partido de liga" />
               </div>
               <h3 class="card__title">Liga 5x5</h3>
               <p class="card__text">Temporada de 12 jornadas con árbitros, estadísticas en vivo y playoffs en la cancha central.</p>
@@ -137,8 +152,8 @@
                 <span class="tag">Street</span>
                 <span class="card__num">02</span>
               </div>
-              <div class="img-slot card__media" data-label="Imagen: torneo 3x3 callejero">
-                <!-- <img src="/img/3x3.jpg" alt="Torneo 3x3" /> -->
+              <div class="img-slot card__media" data-label="Imagen: torneo 3x3">
+                <img src="/img/basket3vs3.jpg" alt="Torneo 3x3" />
               </div>
               <h3 class="card__title">Torneo 3x3</h3>
               <p class="card__text">Media cancha, 21 puntos y música a todo volumen. Formato rápido, cada sábado por la tarde.</p>
@@ -153,8 +168,8 @@
                 <span class="tag">Academia</span>
                 <span class="card__num">03</span>
               </div>
-              <div class="img-slot card__media" data-label="Imagen: entrenamiento de tiro">
-                <!-- <img src="/img/academia.jpg" alt="Entrenamiento" /> -->
+              <div class="img-slot card__media" data-label="Imagen: entrenamiento">
+                <img src="/img/irving.jpg" alt="Entrenamiento" />
               </div>
               <h3 class="card__title">Skills Lab</h3>
               <p class="card__text">Manejo de balón, tiro y lectura de juego con coaches certificados. Grupos por edad y nivel.</p>
@@ -188,7 +203,7 @@
             <div class="split__media">
               <div class="split__badge" aria-hidden="true">24/7<br />Hoops</div>
               <div class="img-slot" data-label="Imagen: la cancha / gimnasio (vertical)">
-                <!-- <img src="/img/cancha.jpg" alt="Cancha de basket techada" /> -->
+                <img src="/img/cancha.jpg" alt="Cancha de basket techada" />
               </div>
               <div class="split__sticker" aria-hidden="true">Game time 🔥</div>
             </div>
@@ -203,12 +218,6 @@
         <div class="footer__intro">
           <p class="footer__heading">¿Listo para saltar a la cancha?</p>
           <a href="#" class="btn btn--filled btn--lg">Únete al club</a>
-          <div class="footer__app">
-            <div class="footer__qr" aria-hidden="true">
-              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-            </div>
-            <span class="footer__app-label">Descarga la app</span>
-          </div>
         </div>
 
         <div>

@@ -36,45 +36,6 @@
     max-width: 340px;
   }
 
-  // Tarjeta tipo QR (descarga de la app)
-  &__app {
-    display: flex;
-    .outline();
-    border-radius: @radius-card;
-    overflow: hidden;
-    background: @voltage-violet;
-    color: @paper-white;
-  }
-
-  &__qr {
-    width: 84px;
-    height: 84px;
-    padding: @sp-8;
-    background: @paper-white;
-    border-right: 1px solid @carbon;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 3px;
-
-    i {
-      background: @carbon;
-      border-radius: 2px;
-
-      &:nth-child(3n),
-      &:nth-child(7),
-      &:nth-child(11) {
-        background: transparent;
-      }
-    }
-  }
-
-  &__app-label {
-    display: grid;
-    place-items: center;
-    padding: 0 @sp-20;
-    .label(14px);
-  }
-
   &__col-title {
     .label(12px);
     margin-bottom: @sp-16;
@@ -166,3 +127,4 @@
     animation: none;
   }
 }
+

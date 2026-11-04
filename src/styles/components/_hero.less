@@ -68,16 +68,18 @@
     pointer-events: none;
   }
 
+  // ---------- Foto principal enmarcada ----------
   &__image {
     position: relative;
     z-index: 2;
-    max-width: 880px;
-    margin: @sp-60 auto 0;
+    max-width: 920px;
+    margin: @sp-80 auto 0;
+    padding: 0 @sp-16;
+  }
 
-    .img-slot {
-      min-height: 380px;
-      border-radius: @radius-card-elevated;
-      background: fade(@paper-white, 70%);
+  @media @bp-md {
+    &__image {
+      margin-top: @sp-60;
     }
   }
 
@@ -158,10 +160,6 @@
 
     &__sticker--lav {
       display: none;
-    }
-
-    &__image .img-slot {
-      min-height: 260px;
     }
   }
 

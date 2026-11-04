@@ -87,17 +87,41 @@
   }
 
   &__link {
-    display: block;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     padding: 11px @sp-16;
     .label(12px);
     .pill();
     border: 1px solid transparent;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, padding 0.2s ease;
 
-    &:hover,
+    // Punto indicador (balón) que aparece en la sección activa
+    &::before {
+      content: '';
+      width: 0;
+      height: 10px;
+      flex: none;
+      border-radius: 50%;
+      background: @ember;
+      border: 0 solid @carbon;
+      transition: width 0.2s ease;
+    }
+
+    &:hover {
+      border-color: @carbon;
+      background: @soft-mist;
+    }
+
     &.is-active {
       border-color: @carbon;
       background: @sunburst;
+
+      &::before {
+        width: 10px;
+        border-width: 1px;
+      }
     }
   }
 
@@ -156,3 +180,4 @@
     }
   }
 }
+

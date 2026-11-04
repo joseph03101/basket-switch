@@ -1,0 +1,202 @@
+// ===========================================================
+// FRAME — marco tipo "tarjeta de jugada" para la foto del hero
+// ===========================================================
+
+.hero__image {
+  // Capas de papel apiladas detrás del marco (sin sombras, solo color)
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0 @sp-16;
+    .outline();
+    border-radius: @radius-card-elevated;
+  }
+
+  &::before {
+    background: @voltage-violet;
+    transform: rotate(3.5deg) translate(10px, 8px);
+  }
+
+  &::after {
+    background: @mint-pop;
+    transform: rotate(-2.5deg) translate(-8px, 10px);
+  }
+}
+
+.frame {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: @sp-12;
+  padding: @sp-12;
+  background: @paper-white;
+  .outline();
+  border-radius: @radius-card-elevated;
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: rotate(0deg) scale(1.01);
+  }
+
+  // Barra superior estilo marcador
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: @sp-8;
+    padding: 10px @sp-16;
+    background: @carbon;
+    color: @paper-white;
+    .pill();
+    .label(12px);
+  }
+
+  &__live {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: @ember;
+    color: @paper-white;
+    .pill();
+    animation: live 1.4s ease-in-out infinite;
+  }
+
+  &__score {
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+  }
+
+  &__time {
+    color: @sunburst;
+  }
+
+  // Foto
+  &__photo {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    .outline();
+    border-radius: @radius-body;
+    background: @sky-wash;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &:hover &__photo img {
+    transform: scale(1.04);
+  }
+
+  &__caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @sp-4 @sp-8 @sp-4 @sp-12;
+    .label(13px);
+  }
+
+  &__dots {
+    display: flex;
+    gap: @sp-4;
+
+    i {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      .outline();
+    }
+
+    i:nth-child(1) {
+      background: @ember;
+    }
+    i:nth-child(2) {
+      background: @sunburst;
+    }
+    i:nth-child(3) {
+      background: @electric-blue;
+    }
+  }
+
+  // Stickers pegados sobre el marco
+  &__sticker {
+    position: absolute;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    .outline();
+  }
+
+  &__sticker--slam {
+    top: -34px;
+    right: -6px;
+    padding: @sp-12 @sp-20;
+    background: @sunburst;
+    border-radius: @radius-card;
+    transform: rotate(10deg);
+    font-family: @font-display;
+    font-size: 30px;
+    line-height: 0.85;
+    text-transform: uppercase;
+  }
+
+  &__sticker--ball {
+    bottom: -34px;
+    left: -10px;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: rotate(-15deg);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media @bp-sm {
+    &__bar {
+      padding: 8px @sp-12;
+      font-size: 10px;
+    }
+
+    &__time {
+      display: none;
+    }
+
+    &__photo {
+      aspect-ratio: 4 / 3;
+    }
+
+    &__sticker--slam {
+      font-size: 20px;
+      top: -24px;
+    }
+
+    &__sticker--ball {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
+
+@keyframes live {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame__live {
+    animation: none;
+  }
+}
+

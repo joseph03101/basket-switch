@@ -14,6 +14,12 @@ html {
   scroll-behavior: smooth;
 }
 
+// Compensa el navbar sticky al saltar a una sección
+section[id],
+footer[id] {
+  scroll-margin-top: 70px;
+}
+
 body {
   font-family: @font-ui;
   font-weight: @weight-medium;
@@ -163,3 +169,4 @@ button {
     line-height: 1.2;
   }
 }
+
